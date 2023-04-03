@@ -29,13 +29,13 @@ namespace TesteSistema
 
             MySqlConnection con = new MySqlConnection(
             "server = localhost; " +
-            "database= csharp; " +
+            "database = curso_csharp; " +
             "user id = root; " +
-            "password=admin;");
+            "password = root;");
 
-            MySqlCommand cmd = new MySqlCommand("insert into pessoa values ('" + Id + "','" + Nome + "','" + Endereco + "','" + Profissao + "' ); ", con);
+            MySqlCommand cmd = new MySqlCommand("insert into pessoa values ('" + Id + "','" + Nome + "','" + Profissao + "','" + Endereco + "' ); ", con);
 
-            con.Open(); // abre a conexão com o banco
+            con.Open(); // abre a conexï¿½o com o banco
             cmd.ExecuteNonQuery(); // executa cmd
       
             atualizar_ds();
@@ -96,25 +96,25 @@ namespace TesteSistema
         {
             MySqlConnection con = new MySqlConnection(
           "server = localhost; " +
-          "database= csharp; " +
+          "database = curso_csharp; " +
           "user id = root; " +
-          "password=admin;");
+          "password = root;");
 
 
             MySqlCommand cmd = new MySqlCommand(" select * from pessoa ", con);
 
-            con.Open(); // abre a conexão com o banco
+            con.Open(); // abre a conexï¿½o com o banco
             cmd.ExecuteNonQuery(); // executa cmd
-            /*Pronto após o cmd.ExecuteNonQuery(); selecionamos tudo o
+            /*Pronto apï¿½s o cmd.ExecuteNonQuery(); selecionamos tudo o
             que tinha dentro do banco,
-            agora os passos seguintes irão exibir as informações para
-            que o usuário possa vê-las
+            agora os passos seguintes irï¿½o exibir as informaï¿½ï¿½es para
+            que o usuï¿½rio possa vï¿½-las
             */
             MySqlDataAdapter da = new MySqlDataAdapter(); /* da, adapta o banco de dados ao nosso projeto */
             DataSet ds = new DataSet();
             da.SelectCommand = cmd; // adapta cmd ao projeto
-            da.Fill(ds); // preenche todas as informações dentro do DataSet
-            dados.DataSource = ds; //Datagridview recebe ds já preenchido
+            da.Fill(ds); // preenche todas as informaï¿½ï¿½es dentro do DataSet
+            dados.DataSource = ds; //Datagridview recebe ds jï¿½ preenchido
             dados.DataMember = ds.Tables[0].TableName;
             /*Agora Datagridview exibe o banco de dados*/
         }
@@ -124,7 +124,7 @@ namespace TesteSistema
 
 
             campo_id.Text = dados.CurrentRow.Cells[0].Value.ToString();
-            /* ao clicar em uma linha do datagridview, o conteudo é transferido para o texbox */
+            /* ao clicar em uma linha do datagridview, o conteudo ï¿½ transferido para o texbox */
             campo_nome.Text = dados.CurrentRow.Cells[1].Value.ToString();
             campo_profissao.Text = dados.CurrentRow.Cells[2].Value.ToString();
             campo_endereco.Text = dados.CurrentRow.Cells[3].Value.ToString(); //
@@ -140,13 +140,13 @@ namespace TesteSistema
 
             MySqlConnection con = new MySqlConnection(
             "server = localhost; " +
-            "database= csharp; " +
+            "database = curso_csharp; " +
             "user id = root; " +
-            "password=admin;");
+            "password = root;");
 
             MySqlCommand cmd = new MySqlCommand("update pessoa set Nome = '"+Nome+"', Profissao = '"+Profissao+"', Endereco = '"+Endereco+"' where Id = '"+Id+"' ", con);
             
-            con.Open(); // abre a conexão com o banco
+            con.Open(); // abre a conexï¿½o com o banco
             cmd.ExecuteNonQuery(); // executa cmd
 
             atualizar_ds();
@@ -159,13 +159,13 @@ namespace TesteSistema
 
             MySqlConnection con = new MySqlConnection(
             "server = localhost; " +
-            "database= csharp; " +
+            "database = curso_csharp; " +
             "user id = root; " +
-            "password=admin;");
+            "password = root;");
 
             MySqlCommand cmd = new MySqlCommand("delete from pessoa where Id = '" + Id + "' ", con);
 
-            con.Open(); // abre a conexão com o banco
+            con.Open(); // abre a conexï¿½o com o banco
             cmd.ExecuteNonQuery(); // executa cmd
 
             campo_endereco.Clear();
